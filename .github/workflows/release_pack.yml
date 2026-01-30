@@ -29,5 +29,5 @@ jobs:
       env:
         GH_TOKEN: ${{ secrets.TOKEN }}
       run: |
-        echo -e "$(TZ='Asia/Seoul' date +'%Y%m%d_%H%M') (UTC +9)\n\nApplies to \`${{ github.event.inputs.release_tag }}+\`" > notes.txt
+        echo -e "$(TZ='Asia/Seoul' date +'%Y%m%d_%H%M') (UTC +9)" > notes.txt
         gh release create ${{ github.event.inputs.release_tag }} ${{ inputs.release_tag }}.mcpack --title "${{ github.event.inputs.release_tag }}" --notes-file "notes.txt" --latest
