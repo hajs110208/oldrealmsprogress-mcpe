@@ -1,0 +1,33 @@
+name: Release
+run-name: 'Release MPACK: ${{ inputs.release_tag }}'
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: 'Release tag'
+        default: 'v1.1.0-test'
+        required: true
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: git clone
+      run: |
+        git clone https://github.com/hajs110208/oldrealmsprogress-mcpe.git
+
+    - name: Make ZIP
+      run: |
+        pushd 'pack' ; zip -r ../src/${{ inputs.release_tag }}_music.mcpack * -x "*.git*" ".github/*" ".gitignore" ; popd
+
+    - name: Upload to release
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        echo -e "$(TZ='Asia/Seoul' date +'%Y%m%d_%H%M') (UTC +9)\n\nApplies to \`${{ github.event.inputs.release_tag }}+\`" > notes.txt
+        gh release create ${{ github.event.inputs.release_tag }} ${{ inputs.release_tag }}.mcpack --title "${{ github.event.inputs.release_tag }}" --notes-file "notes.txt" --latest
