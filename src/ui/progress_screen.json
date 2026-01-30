@@ -1,6 +1,3 @@
-//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL
-//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL
-
 {
   "namespace": "progress",
 
@@ -14,7 +11,7 @@
       }
     ]
   },
-//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL
+
   "realms_loading_world_modal_progress_screen_content": {
     "type": "panel",
     "controls": [
@@ -28,7 +25,7 @@
             {
               "dynamic_title_label": {
                 "type": "label",
-                "text": "#title_text",
+                "text": "realmJoining.progressTitle",
                 "size": [ "100%", "default" ],
                 "text_alignment": "center",
                 "color": [ 1.0, 1.0, 1.0 ],
@@ -43,7 +40,54 @@
                 ]
               }
             },
+            // add some padding cuz the texts are too close together
             {
+              "padding_title_text": {
+                "type": "panel",
+                "size": [ 0, 13 ]
+              }
+            },-
+            {
+            // Changed the progress text label to match older join screen
+              "progress_text_label": {
+                "type": "label",
+                "text": "progressScreen.message.genericMayTakeAMoment",
+                "size": [ "100%", "default" ],
+                "text_alignment": "center",
+                "color": [ 1.0, 1.0, 1.0 ],
+                "shadow": true,
+                "layer": 10,
+                "bindings": [
+                  { 
+                    "binding_name": "(not #server_region_connected_visible)", 
+                    "binding_name_override": "#visible" 
+                  }
+                ]
+              }
+            },
+            {
+            //building terrain label. Not really accurate.
+              "buildingterrain_label": {
+                "type": "label",
+                "text": "menu.generatingTerrain",
+                "size": [ "100%", "default" ],
+                "text_alignment": "center",
+                "color": [ 1.0, 1.0, 1.0 ],
+                "shadow": true,
+                "layer": 10,
+                "bindings": [
+                  { "binding_name": "(not #loading_bar_visible)", 
+                    "binding_name_override": "#ignored"
+                  },
+                  { 
+                    "binding_name": "#server_region_connected_visible", 
+                    "binding_name_override": "#visible" 
+                  }
+                ]
+              }
+            },
+            {
+            //done label just like opening worlds
               "done_label": {
                 "type": "label",
                 "text": "progressScreen.message.done",
@@ -60,16 +104,11 @@
                 ]
               }
             },
+            //padding for animation bar
             {
               "padding_small": { 
                 "type": "panel", 
-                "size": [ 0, 8 ],
-                "bindings": [
-                  { 
-                    "binding_name": "#loading_bar_visible", 
-                    "binding_name_override": "#visible" 
-                  }
-                ]
+                "size": [ 0, 15 ]
               }
             },
             {
@@ -103,6 +142,7 @@
               "padding_large": { "type": "panel", "size": [ 0, 24 ] }
             },
             {
+            //cancel button. idk if it works or not
               "button_panel": {
                 "type": "panel",
                 "size": [ "100%", 26 ],
@@ -113,7 +153,14 @@
                       "$button_text": "gui.cancel",
                       "anchor_from": "center",
                       "anchor_to": "center",
-                      "layer": 10
+                      "layer": 10,
+                      "$pressed_button_name": "button.menu_exit",
+                      "bindings": [
+                        {
+                          "binding_name": "#cancel_visible",
+                          "binding_name_override": "#visible"
+                        }
+                      ]
                     }
                   }
                 ]
@@ -121,6 +168,9 @@
             }
           ]
         }
+      },
+      { 
+        "popup_dialog_factory@progress.popup_dialog_factory": {} 
       }
     ]
   }
