@@ -1,0 +1,127 @@
+//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL
+//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL
+
+{
+  "namespace": "progress",
+
+  "realms_loading_background": {
+    "type": "panel",
+    "controls": [
+      {
+        "portal@common.portal_background": {
+          "layer": 1
+        }
+      }
+    ]
+  },
+//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL//DO NOT STEAL
+  "realms_loading_world_modal_progress_screen_content": {
+    "type": "panel",
+    "controls": [
+      {
+        "center_content_stack": {
+          "type": "stack_panel",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "size": [ "100%", "100%c" ],
+          "controls": [
+            {
+              "dynamic_title_label": {
+                "type": "label",
+                "text": "#title_text",
+                "size": [ "100%", "default" ],
+                "text_alignment": "center",
+                "color": [ 1.0, 1.0, 1.0 ],
+                "shadow": true,
+                "layer": 10,
+                "bindings": [
+                  { "binding_name": "#title_text" },
+                  { 
+                    "binding_name": "#loading_bar_visible", 
+                    "binding_name_override": "#visible" 
+                  }
+                ]
+              }
+            },
+            {
+              "done_label": {
+                "type": "label",
+                "text": "progressScreen.message.done",
+                "size": [ "100%", "default" ],
+                "text_alignment": "center",
+                "color": [ 1.0, 1.0, 1.0 ],
+                "shadow": true,
+                "layer": 10,
+                "bindings": [
+                  { 
+                    "binding_name": "(not #loading_bar_visible)", 
+                    "binding_name_override": "#visible" 
+                  }
+                ]
+              }
+            },
+            {
+              "padding_small": { 
+                "type": "panel", 
+                "size": [ 0, 8 ],
+                "bindings": [
+                  { 
+                    "binding_name": "#loading_bar_visible", 
+                    "binding_name_override": "#visible" 
+                  }
+                ]
+              }
+            },
+            {
+              "animation_panel": {
+                "type": "panel",
+                "size": [ "100%", 8 ],
+                "bindings": [
+                  { 
+                    "binding_name": "#loading_bar_visible", 
+                    "binding_name_override": "#visible" 
+                  }
+                ],
+                "controls": [
+                  {
+                    "segmented_anim": {
+                      "type": "image",
+                      "texture": "textures/ui/loading_bar",
+                      "size": [ 64, 8 ],
+                      "uv_size": [ 64, 8 ],
+                      "color": [ 0.8, 0.8, 0.8 ],
+                      "uv": "@progress.bar_animation",
+                      "layer": 10,
+                      "anchor_from": "center",
+                      "anchor_to": "center"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "padding_large": { "type": "panel", "size": [ 0, 24 ] }
+            },
+            {
+              "button_panel": {
+                "type": "panel",
+                "size": [ "100%", 26 ],
+                "controls": [
+                  {
+                    "cancel_button@common_buttons.light_text_button": {
+                      "size": [ 100, 26 ],
+                      "$button_text": "gui.cancel",
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "layer": 10
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
