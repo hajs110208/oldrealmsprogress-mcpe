@@ -1,0 +1,11 @@
+{
+  "namespace": "common",
+
+  "portal_background": {
+    "type": "image",
+    "texture": "textures/ui/portalBg",
+    "fill": true,
+    "tiled": true,
+    "layer": 1
+  }
+}
