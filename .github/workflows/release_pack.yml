@@ -23,7 +23,7 @@ jobs:
 
     - name: Make ZIP
       run: |
-        pushd 'pack' ; zip -r ../src/${{ inputs.release_tag }}_music.mcpack * -x "*.git*" ".github/*" ".gitignore" ; popd
+        pushd 'oldrealmsprogress-mcpe' ; zip -r ../src/${{ inputs.release_tag }}.mcpack * -x "*.git*" ".github/*" ".gitignore" ; popd
 
     - name: Upload to release
       env:
