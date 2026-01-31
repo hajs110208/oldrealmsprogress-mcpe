@@ -46,7 +46,7 @@
                 "type": "panel",
                 "size": [ 0, 13 ]
               }
-            },-
+            },
             {
             // Changed the progress text label to match older join screen
               "progress_text_label": {
@@ -175,3 +175,4 @@
     ]
   }
 }
+
