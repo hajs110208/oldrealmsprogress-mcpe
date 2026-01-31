@@ -3,7 +3,7 @@
   "header": {
     "uuid": "54392605-b774-440d-9f62-1323b0677bb0",
     "name": "Old Pause + Old Realms Loading Screen",
-    "version": [1, 1, 0],
+    "version": [1, 1, 1],
     "description": "Old Pause menu, Also re-created old Realms progress screen! By hajs0208 :)",
 	"min_engine_version": [1, 15, 0]
   },
@@ -12,7 +12,7 @@
   "modules": [
     {
       "description": "hi",
-      "version": [1, 1, 0], 
+      "version": [1, 1, 1], 
       "uuid": "6cba0140-aa00-4a60-8c48-db435e552f3d",
       "type": "resources"
 
