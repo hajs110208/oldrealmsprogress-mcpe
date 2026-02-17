@@ -43,6 +43,8 @@
             // add some padding cuz the texts are too close together
             {
               "padding_title_text": {
+                "anchor_from": "center",
+                "anchor_to": "center",
                 "type": "panel",
                 "size": [ 0, 13 ]
               }
@@ -76,9 +78,26 @@
                 "shadow": true,
                 "layer": 10,
                 "bindings": [
-                  {
-                    "binding_name": "(not #loading_bar_visible and #server_region_connected_visible)", 
+                  { "binding_name": "(not #loading_bar_visible)", 
                     "binding_name_override": "#ignored"
+                  },
+                  { 
+                    "binding_name": "#server_region_connected_visible", 
+                    "binding_name_override": "#visible" 
+                  }
+                ]
+              }
+            },
+            {
+              "padding_done_text": {
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "type": "panel",
+                "size": [ 0, 13 ],
+                "bindings": [
+                  { 
+                    "binding_name": "(not #loading_bar_visible)", 
+                    "binding_name_override": "#visible" 
                   }
                 ]
               }
@@ -172,5 +191,4 @@
     ]
   }
 }
-
 
